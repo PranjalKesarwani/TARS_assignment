@@ -16,6 +16,8 @@ const {response,setResponse,isLoading,setIsLoading,error,setError} = ImageState(
 
   const fetchData = async (url)=>{
         try {
+
+         
             setIsLoading(true);
            const res = await axios(url);
         //    const res = await axios.get(`${baseUrl}/${url}`);
