@@ -36,6 +36,8 @@ const ImgCards = () => {
 
                 <div className='image-gallery w-12/12  flex flex-wrap gap-3 p-3 items-start justify-around'>
 
+              
+
                     {
                         response.map((item, key) => {
                             return (

@@ -4,6 +4,7 @@ import axios from 'axios'
 import ImgCards from '../ImgCards'
 import { ImageState } from '../../Context/ImageProvider'
 import useImgApi from '../../hooks/useImgApi'
+import Footer from '../Footer'
 // import Footer from '../Footer'
 
 const Home = () => {
@@ -11,22 +12,19 @@ const Home = () => {
 
     const { setSearch, search, mode } = ImageState();
     const { fetchData } = useImgApi();
-    const [heading, setHeading] = useState('');
+    const [heading, setHeading] = useState('office');
     const searchRef = useRef();
+    const [page,setPage] = useState(1);
 
 
-    // const handleSearch = (e) => {
-    //     console.log(e.target.value);
-    //     setSearch(e.target.value);
-    // }
+
 
     const handleSearchResult = () => {
-        // setHeading(search);
         if(searchRef.current.value===""){
             return;
         }
         setHeading(searchRef.current.value);
-        // fetchData(`/search/photos?page=1&query=${search}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
+        setPage(1);
         fetchData(`/search/photos?page=1&query=${searchRef.current.value}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
         searchRef.current.value='';
     }
@@ -62,7 +60,7 @@ const Home = () => {
             }
 
             <ImgCards />
-            {/* <Footer /> */}
+            <Footer heading={heading} page={page} setPage={setPage} />
 
         </div>
 
