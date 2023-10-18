@@ -1,16 +1,14 @@
 import React, { useRef, useState } from 'react'
 import Navbar from '../Navbar'
-import axios from 'axios'
 import ImgCards from '../ImgCards'
 import { ImageState } from '../../Context/ImageProvider'
 import useImgApi from '../../hooks/useImgApi'
-import Footer from '../Footer'
-// import Footer from '../Footer'
+import Pagination from '../Pagination'
 
 const Home = () => {
 
 
-    const { setSearch, search, mode } = ImageState();
+    const { mode } = ImageState();
     const { fetchData } = useImgApi();
     const [heading, setHeading] = useState('office');
     const searchRef = useRef();
@@ -25,6 +23,7 @@ const Home = () => {
         }
         setHeading(searchRef.current.value);
         setPage(1);
+        //Calling api directly through fetchData function
         fetchData(`/search/photos?page=1&query=${searchRef.current.value}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
         searchRef.current.value='';
     }
@@ -42,6 +41,7 @@ const Home = () => {
        
             <Navbar />
 
+            {/*---------------- Hero background image------------------- */}
             <div className="hero col-12 bg-slate-200 p-1">
                 <div className="heroChild1 flex flex-col items-center justify-center gap-3 ">
                     <h1 className='heroHead text-white text-center  font-extrabold'>Download High Quality Images by creators</h1>
@@ -60,7 +60,7 @@ const Home = () => {
             }
 
             <ImgCards />
-            <Footer heading={heading} page={page} setPage={setPage} />
+            <Pagination heading={heading} page={page} setPage={setPage} />
 
         </div>
 

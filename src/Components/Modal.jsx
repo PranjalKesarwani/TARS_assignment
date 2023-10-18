@@ -3,8 +3,6 @@ import { ImageState } from '../Context/ImageProvider';
 
 const Modal = ({ setIsModal, selectedUser }) => {
 
-    const { response } = ImageState();
-
     const handleCloseModal = () => {
         setIsModal(false);
     }

@@ -24,18 +24,18 @@ input::placeholder {
 }
 
 input:focus {
-  /* outline: 10px solid rgb(250, 246, 246); */
   outline: none;
   border: 1px solid rgb(26, 25, 25);
 }
 
+/* Navbar title------------- */
 .title {
   font-family: 'Pattaya', sans-serif;
   font-size: 2rem;
 }
 
 
-
+/* .hero------------------ */
 .hero {
 
   background-image: url('https://images.unsplash.com/photo-1696875221702-76a6420303af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1928&q=80');
@@ -65,7 +65,7 @@ input:focus {
 }
 
 
-
+/* Response image container---------------------  */
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -76,6 +76,7 @@ input:focus {
   max-width: 300px;
   margin: 10px;
 }
+
 .image-container:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -91,7 +92,7 @@ input:focus {
   border-radius: 50%;
 }
 
-
+/* Modal container -------------------- */
 .modalContainer {
   left: 0;
   top: 0;
@@ -100,24 +101,28 @@ input:focus {
   background-color: rgba(155, 155, 155, 0.7);
   z-index: 1;
 }
-.imgBox{
+
+.imgBox {
   width: 66.66%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.modalChild1{
+
+.modalChild1 {
   width: 90%;
   height: 90%;
   display: flex;
 }
 
-.modalChild3{
+.modalChild3 {
   display: flex;
   flex-direction: column;
 }
 
-#footer{
+/* Pagination--------------- */
+
+#footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,6 +131,7 @@ input:focus {
 
 @media (max-width:576px) {
 
+  /* hero ---------------- */
 
   .hero {
     height: 90vw;
@@ -139,14 +145,18 @@ input:focus {
   .heroBtn {
     font-size: 13px;
   }
- 
 
 }
 
 @media (max-width:768px) {
-    .title {
+
+  /* navbar title ------------------- */
+  .title {
     font-size: 1.3rem;
   }
+
+  /* hero ------------------- */
+
   .hero {
 
     height: 70vw;
@@ -156,27 +166,32 @@ input:focus {
   .heroHead {
     font-size: 1.6rem;
     margin-top: 30px;
-
   }
+
+  /* response image container ----------------- */
   .image-container {
     width: 40%;
   }
-  .imgBox{
+
+  .imgBox {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .modalChild1{
+/* modal -------------------------------- */
+  .modalChild1 {
     width: 90%;
     height: 90%;
     flex-direction: column;
   }
-  .modalChild2{
+
+  .modalChild2 {
     width: 100%;
     height: 100%;
   }
-  .modalChild3{
+
+  .modalChild3 {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;

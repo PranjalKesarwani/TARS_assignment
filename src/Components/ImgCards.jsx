@@ -10,24 +10,20 @@ const ImgCards = () => {
 
 
     const { mode } = ImageState();
+    //When the component will render useImgApi hook will call the fetch data and then that will set the response
     const { response } = useImgApi(`/search/photos?page=1&query=office&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
     const [isModal, setIsModal] = useState(false);
     const [selectedUser,setSelectedUser] = useState({});
 
-    console.log(response);
-    const handleModal = (item) => {
+
+    const openModal = (item) => {
         setIsModal(true);
         setSelectedUser(item);
-        console.log(item);
 
     }
   
-
-
     return (
         <>
-
-
 
             <div className={mode ? 'w-full flex justify-center items-center p-3 bg-dark' : 'w-full flex justify-center items-center p-3'}>
 
@@ -37,7 +33,7 @@ const ImgCards = () => {
 
                 <div className='image-gallery w-12/12  flex flex-wrap gap-3 p-3 items-start justify-around'>
 
-              
+            {/*----------------- Mapping the response------------------*/}
 
                     {
                         response.map((item, key) => {
@@ -45,7 +41,7 @@ const ImgCards = () => {
                                 <div key={key} className=' image-container  bg-gray-50 p-1 rounded-md shadow-md'>
 
 
-                                    <img className="image rounded-md cursor-pointer" src={item.urls.regular} alt={item.alt_description} role='button' onClick={()=>handleModal(item)} />
+                                    <img className="image rounded-md cursor-pointer" src={item.urls.regular} alt={item.alt_description} role='button' onClick={()=>openModal(item)} />
 
                                     <div className='flex justify-center items-start flex-col p-1'>
                                         <div className='flex items-center justify-start p-1'>

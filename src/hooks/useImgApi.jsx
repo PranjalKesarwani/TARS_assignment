@@ -3,43 +3,34 @@ import axios from 'axios';
 import { ImageState } from '../Context/ImageProvider';
 
 
+//Creating custom hook for fetching data from unsplash api
+const useImgApi = (param) => {
 
- const useImgApi = (param)=>{
+    //getting required states from global context
+    const { response, setResponse } = ImageState();
 
-const {response,setResponse,isLoading,setIsLoading,error,setError} = ImageState();
-    // const [response,setResponse] = useState([]);
-    // const [isLoading,setIsLoading] = useState(false);
-    // const [error,setError] = useState('');
-
+    //base URL
     axios.defaults.baseURL = 'https://api.unsplash.com';
-    // const baseUrl = 'https://api.unsplash.com'
 
-  const fetchData = async (url)=>{
+    const fetchData = async (url) => {
         try {
+            const res = await axios(url);
+            setResponse(res.data.results);
 
-         
-            setIsLoading(true);
-           const res = await axios(url);
-        //    const res = await axios.get(`${baseUrl}/${url}`);
-           setResponse(res.data.results);
-            
         } catch (error) {
+            console.log(error);
            
-            setError(error);
-        }finally{
-            setIsLoading(false);
-            
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData(param);
-    },[param])
-    
+    }, [param])
 
 
 
-    return {response,isLoading,error,fetchData:url=>fetchData(url)};
+
+    return { response, fetchData: url => fetchData(url) };
 }
 
 export default useImgApi;

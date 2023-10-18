@@ -1,30 +1,29 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 import { useContext } from 'react';
 
 
+//Creating global storage
+const ImageContext = createContext(); 
 
-const ImageContext = createContext(); //basically it creates an context object
 
+//Creating provider which will take App.jsx as children
 const ImageProvider = ({ children }) => {
+
+
     const [response, setResponse] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
     const [search, setSearch] = useState('');
     const [mode, setMode] = useState(false);
 
 
     const value = {
         response,
-        isLoading,
-        error,
+
         search,
         setSearch,
         setResponse,
-        setIsLoading,
-        setError,
+     
         mode,
         setMode
-
     }
     return (
         <ImageContext.Provider value={value}>
@@ -33,8 +32,8 @@ const ImageProvider = ({ children }) => {
     )
 }
 
+//getting global state from which various components will get the data
 export const ImageState = () => {
-
     return useContext(ImageContext);
 }
 
