@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Pattaya&family=Poppins:ital,wght@0,300;0,400;1,400&family=Work+Sans:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+
+
+input::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #999;
+
+}
+
+input:focus {
+  /* outline: 10px solid rgb(250, 246, 246); */
+  outline: none;
+  border: 1px solid rgb(26, 25, 25);
+}
+
+.title {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 2rem;
+}
+
+
+
+.hero {
+
+  background-image: url('https://images.unsplash.com/photo-1696875221702-76a6420303af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1928&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 35vw;
+
+}
+
+.heroHead {
+  font-size: 2.5rem;
+
+}
+
+.heroInput {
+  width: 75%;
+  padding: 8px;
+}
+
+.heroBtn {
+  font-size: 18px;
+}
+
+
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  width: 30%;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.image-container .img {
+  width: 100%;
+  height: auto;
+}
+
+.userProfile {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+
+.imgModal {
+  left: 0;
+  top: 0;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(155, 155, 155, 0.5);
+}
+
+@media (max-width:576px) {
+
+
+  .hero {
+    height: 90vw;
+  }
+
+  .heroInput {
+    width: 60%;
+    padding: 4px;
+  }
+
+  .heroBtn {
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width:768px) {
+    .title {
+    font-size: 1.3rem;
+  }
+  .hero {
+
+    height: 70vw;
+
+  }
+
+  .heroHead {
+    font-size: 1.6rem;
+    margin-top: 30px;
+
+  }
+  .image-container {
+    width: 40%;
+  }
+
+}
