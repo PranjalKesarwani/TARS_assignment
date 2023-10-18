@@ -29,7 +29,7 @@ const useImgApi = (param) => {
 
 
 
-
+//also returning fetchData so that it can be used from inside the function as someone cannot call it using hook inside the function
     return { response, fetchData: url => fetchData(url) };
 }
 
