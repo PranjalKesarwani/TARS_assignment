@@ -98,6 +98,7 @@ input:focus {
   height: 100vh;
   position: fixed;
   background-color: rgba(155, 155, 155, 0.7);
+  z-index: 1;
 }
 .imgBox{
   width: 66.66%;
@@ -138,26 +139,7 @@ input:focus {
   .heroBtn {
     font-size: 13px;
   }
-  /* .imgBox{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .modalChild1{
-    width: 90%;
-    height: 90%;
-    flex-direction: column;
-  }
-  .modalChild2{
-    width: 100%;
-    height: 100%;
-  }
-  .modalChild3{
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-  } */
+ 
 
 }
 

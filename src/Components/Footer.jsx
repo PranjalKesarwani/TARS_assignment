@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useImgApi from '../hooks/useImgApi';
 
 const Footer = ({ heading, page, setPage }) => {
 
-    // const [page,setPage] = useState(1);
     const { fetchData } = useImgApi();
-    let prevHeading = heading;
 
 
 
 
     const handleIncPage = () => {
         setPage((prev) => prev + 1);
-        fetchData(`/search/photos?page=${page}&query=${heading}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
+        // fetchData(`/search/photos?page=${page}&query=${heading}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
 
         console.log(page);
     }
@@ -20,12 +18,16 @@ const Footer = ({ heading, page, setPage }) => {
 
         if (page >= 2) {
             setPage((prev) => prev - 1);
-            fetchData(`/search/photos?page=${page}&query=${heading}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
+            // fetchData(`/search/photos?page=${page}&query=${heading}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
 
             console.log(page);
         }
 
     }
+    useEffect(()=>{
+        fetchData(`/search/photos?page=${page}&query=${heading}&client_id=ryOeIMFxJgTHcNn31v3JmOhyFmEZWyhswqPeg-10lZM`);
+
+    },[page]);
 
     return (
         <>

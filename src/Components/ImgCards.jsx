@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useImgApi from '../hooks/useImgApi';
 import { ImageState } from '../Context/ImageProvider';
 import Modal from './Modal';
@@ -21,6 +21,7 @@ const ImgCards = () => {
         console.log(item);
 
     }
+  
 
 
     return (
